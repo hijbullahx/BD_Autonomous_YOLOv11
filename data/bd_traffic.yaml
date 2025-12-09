@@ -1,0 +1,24 @@
+# Bangladesh Autonomous Driving Dataset Configuration
+
+path: ../data/processed  # Root directory for dataset
+train: train/images      # Train images (relative to path)
+val: val/images          # Validation images (relative to path)
+test: test/images        # Test images (optional)
+
+# Number of classes
+nc: 12
+
+# Class Names (Index matches class ID)
+names:
+  0: Car
+  1: Bus
+  2: Truck
+  3: Motorcycle
+  4: Bicycle
+  5: Rickshaw
+  6: Auto_Rickshaw  # CNG
+  7: Easy_Bike      # Battery 3-wheeler
+  8: Van            # Cargo 3-wheeler (flatbed)
+  9: Leguna         # Human hauler
+  10: Pedestrian
+  11: Animal        # Horse/Cow/Dog
