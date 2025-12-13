@@ -18,8 +18,8 @@ ENV/
 *~
 
 # Dataset files (too large for git)
-data/raw/dataset.zip
-data/raw/Bangladeshi Traffic Flow Dataset/
+data/
+
 
 # Model checkpoints
 *.pt
