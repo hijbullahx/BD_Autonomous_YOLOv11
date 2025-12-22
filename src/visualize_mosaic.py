@@ -2,6 +2,7 @@ import sys
 import os
 import cv2
 import matplotlib.pyplot as plt
+from types import SimpleNamespace
 
 # Add project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -16,19 +17,23 @@ def generate_mosaic_sample():
     # Check dataset config
     data_cfg = check_det_dataset(TrainingConfig.DATA_YAML)
     
+    # Convert hyperparameters dict to object with attribute access
+    hyp = SimpleNamespace(**TrainingConfig.get_args())
+    
     # Initialize a Dataset Object with Mosaic ENABLED
     dataset = YOLODataset(
         img_path=data_cfg['train'],
         imgsz=640,
         batch_size=4,
         augment=True,
-        hyp=TrainingConfig.get_args(), # Passes mosaic=1.0
+        hyp=hyp,  # Passes mosaic=1.0 as object attributes
         rect=False,
         cache=False,
         single_cls=False,
         stride=32,
         pad=0.0,
-        prefix=''
+        prefix='',
+        data=data_cfg  # Add the data configuration
     )
     
     # Get a single batch (which triggers the Mosaic logic)

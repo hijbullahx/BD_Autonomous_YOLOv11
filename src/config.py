@@ -21,13 +21,28 @@ class TrainingConfig:
     # Augmentation Parameters (default values)
     MOSAIC = 1.0
     MIXUP = 0.1
+    CUTMIX = 0.0
+    COPY_PASTE = 0.0
+    COPY_PASTE_MODE = "flip"
+    AUTO_AUGMENT = "randaugment"
+    ERASING = 0.4
+    CROP_FRACTION = 1.0
     HSV_H = 0.015
     HSV_S = 0.7
     HSV_V = 0.4
     DEGREES = 0.0
     TRANSLATE = 0.1
     SCALE = 0.5
+    SHEAR = 0.0
+    PERSPECTIVE = 0.0
+    FLIPUD = 0.0
     FLIPLR = 0.5
+    BGIMAGE = 0.0
+    MOSAIC_BORDER = [-320, -320]
+    MIXUP_SCALE = [0.5, 1.5]
+    MASK_RATIO = 4
+    OVERLAP_MASK = True
+    BGR = 0.0
     
     @staticmethod
     def get_args() -> dict:
@@ -38,13 +53,28 @@ class TrainingConfig:
         return {
             'mosaic': TrainingConfig.MOSAIC,
             'mixup': TrainingConfig.MIXUP,
+            'cutmix': TrainingConfig.CUTMIX,
+            'copy_paste': TrainingConfig.COPY_PASTE,
+            'copy_paste_mode': TrainingConfig.COPY_PASTE_MODE,
+            'auto_augment': TrainingConfig.AUTO_AUGMENT,
+            'erasing': TrainingConfig.ERASING,
+            'crop_fraction': TrainingConfig.CROP_FRACTION,
             'hsv_h': TrainingConfig.HSV_H,
             'hsv_s': TrainingConfig.HSV_S,
             'hsv_v': TrainingConfig.HSV_V,
             'degrees': TrainingConfig.DEGREES,
             'translate': TrainingConfig.TRANSLATE,
             'scale': TrainingConfig.SCALE,
+            'shear': TrainingConfig.SHEAR,
+            'perspective': TrainingConfig.PERSPECTIVE,
+            'flipud': TrainingConfig.FLIPUD,
             'fliplr': TrainingConfig.FLIPLR,
+            'bgimage': TrainingConfig.BGIMAGE,
+            'mosaic_border': TrainingConfig.MOSAIC_BORDER,
+            'mixup_scale': TrainingConfig.MIXUP_SCALE,
+            'mask_ratio': TrainingConfig.MASK_RATIO,
+            'overlap_mask': TrainingConfig.OVERLAP_MASK,
+            'bgr': TrainingConfig.BGR,
         }
     
     @staticmethod
