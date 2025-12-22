@@ -1,7 +1,7 @@
 import sys
 import os
 import torch
-
+from src.callbacks import get_callbacks
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -42,6 +42,7 @@ def train_model():
         pretrained=True,
         optimizer="auto",
         verbose=True,
+        workers=2,
         
         # Augmentation Hyperparameters (From config.py)
         mosaic=args['mosaic'],
@@ -53,6 +54,7 @@ def train_model():
         translate=args['translate'],
         scale=args['scale'],
         fliplr=args['fliplr'],
+        callbacks=get_callbacks()
         
         # Hardware
         device=0 if torch.cuda.is_available() else "cpu",
